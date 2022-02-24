@@ -4,6 +4,7 @@ export const celsiusSign = "°C";
 export const feelsLike = `Feels Like:`
 export const favoriteDay = `Add To Favorite Days`;
 export const favorited = `You Liked This Day`;
+export const favoritedPageTitle = "Your Favorite Days Collection";
 export const humidity = `Humidity: `;
 export const sunset = `Sunset Time: `;
 export const sunrise = `Sunrise Time: `;

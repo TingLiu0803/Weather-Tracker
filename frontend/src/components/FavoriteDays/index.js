@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useContextValue } from "../../context/appContext";
 import { backHome } from "../../shared/constants/constantStrings";
 import DayDataOverView from "../../components/DayDataOverview/index";
+import { favoritedPageTitle } from "../../shared/constants/constantStrings";
 
 // the child component of WeeklyWeatherReport
 const FavoriteDays = () => {
@@ -11,6 +12,7 @@ const FavoriteDays = () => {
 
   return (
     <div className="FavoriteDays">
+      <h1>{favoritedPageTitle}</h1>
       {globalFavoriteDays
         ? globalFavoriteDays.map((dailyData, key) => (
             <DayDataOverView

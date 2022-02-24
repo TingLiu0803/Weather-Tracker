@@ -10,6 +10,8 @@
 - One for the weather list cards
 - One for the card detail
 
-# YouTube link for a short video demo to show the animation (without the like function)
+# YouTube link for a short video demo to show the animation with the like function
 
-- https://youtu.be/h33gD-AEk0A
+- https://youtu.be/bwncr1SeLQo
+
+
