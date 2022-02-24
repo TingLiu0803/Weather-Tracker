@@ -2,15 +2,15 @@ import { useState } from "react";
 import { useModifiedData } from "./useModifiedData";
 
 export const useAppContex = () => {
-  const [generalGlobalState, setGeneralGlobalState] = useState({});
+  const [globalFavoriteDays, setGlobalFavoriteDays] = useState([]);
   const { currentWeatherData, dailyDataList, daysOfWeek, weeklyDataList } = useModifiedData()
 
   return {
-    generalGlobalState,
+    globalFavoriteDays,
     weeklyDataList,
     currentWeatherData,
     daysOfWeek,
     dailyDataList,
-    setGeneralGlobalState
+    setGlobalFavoriteDays
   };
 };

@@ -10,7 +10,7 @@ const DayDataOverview = ({ daysOfWeek, dailyData, targetDay }) => {
 
   const onClick = ({ target }) => {
     setSearchKey(targetDay);
-    history.push(`/${targetDay}`)
+    history.push(`/days/${targetDay}`)
   }
 
   return (

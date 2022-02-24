@@ -4,10 +4,12 @@ import CurrentWeatherInfo from "../CurrentWeatherInfo/index";
 import CurrentSubDescription from "../CurrentSubDescription/index";
 import LoadingPage from "../LoadingPage/index";
 import DayDataOverview from "../DayDataOverview/index";
+import { useHistory } from "react-router-dom";
 import { useContextValue } from "../../context/appContext.js";
 
 const WeeklyWeatherReport = () => {
   const { currentWeatherData, daysOfWeek, weeklyDataList } = useContextValue();
+  const history = useHistory();
   return (
     <div className="WeeklyWeatherReport">
       {currentWeatherData ? (
@@ -32,6 +34,18 @@ const WeeklyWeatherReport = () => {
             ))
           : ""}
       </div>
+      {currentWeatherData ? (
+        <div>
+          <button 
+            className="favorite_list_access_button"
+            onClick={() => history.push("/favorite")}
+          >
+            Access To Favorite Days
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

@@ -1,9 +1,12 @@
+export const backHome = "Back To Home Page";
 export const cityName = "Toronto, Ontario";
 export const celsiusSign = "°C";
 export const feelsLike = `Feels Like:`
+export const favoriteDay = `Add To Favorite Days`;
+export const favorited = `You Liked This Day`;
 export const humidity = `Humidity: `;
+export const sunset = `Sunset Time: `;
+export const sunrise = `Sunrise Time: `;
 export const mph = `mph`;
 export const weather = `Weather:`;
 export const wind = `Wind: `;
-export const sunset = `Sunset Time: `;
-export const sunrise = `Sunrise Time: `;

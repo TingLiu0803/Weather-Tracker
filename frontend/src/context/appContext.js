@@ -5,21 +5,23 @@ export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
   const {
-    generalGlobalState,
+    globalFavoriteDays,
     currentWeatherData,
     dailyDataList,
     daysOfWeek,
     weeklyDataList,
+    setGlobalFavoriteDays
   } = useAppContex();
 
   return (
     <AppContext.Provider
       value={{
-        generalGlobalState,
+        globalFavoriteDays,
         currentWeatherData,
         dailyDataList,
         daysOfWeek,
-        weeklyDataList
+        weeklyDataList,
+        setGlobalFavoriteDays
       }}
     >
       {children}

@@ -11,3 +11,11 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.favorite_list_access_button {
+  border: 1.5px solid black;
+  border-radius: 0.5rem;
+  color: black;
+  padding: 0.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
