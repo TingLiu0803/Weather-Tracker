@@ -1,0 +1,25 @@
+.CurrentWeatherInfo {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+/* 
+  responsive design with flexbox and media query 
+*/ 
+
+@media (max-width: 450px) {
+  .CurrentWeatherInfo {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .CurrentWeatherInfo {
+    margin: 0;
+    padding: 0;
+  }
+}

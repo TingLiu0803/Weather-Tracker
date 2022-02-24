@@ -1,0 +1,9 @@
+export const cityName = "Toronto, Ontario";
+export const celsiusSign = "°C";
+export const feelsLike = `Feels Like:`
+export const humidity = `Humidity: `;
+export const mph = `mph`;
+export const weather = `Weather:`;
+export const wind = `Wind: `;
+export const sunset = `Sunset Time: `;
+export const sunrise = `Sunrise Time: `;

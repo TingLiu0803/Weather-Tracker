@@ -1,0 +1,26 @@
+.CurrentSubDescription {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.description {
+  color: rgb(83, 83, 83);
+  margin: 1rem;
+}
+
+/* 
+  responsive design with flexbox and media query 
+*/ 
+
+@media (max-width: 450px) {
+  .description {
+    margin: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .description {
+    margin: 0;
+  }
+}
