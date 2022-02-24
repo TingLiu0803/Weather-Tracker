@@ -8,8 +8,8 @@ const PORT = +process.env.PORT || 3001;
 
 function getDatabaseUri() {
   return (process.env.NODE_ENV === "test")
-      ? "acquco_test"
-      : process.env.DATABASE_URL || "acquco";
+      ? "weather_test"
+      : process.env.DATABASE_URL || "weather";
 }
 
 console.log("server Config:");
