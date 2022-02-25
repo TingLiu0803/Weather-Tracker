@@ -6,4 +6,3 @@ CREATE DATABASE weather;
 \connect weather
 
 \i weather-schema.sql
-\i weather-seed.sql

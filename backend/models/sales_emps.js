@@ -6,77 +6,43 @@ const { sqlForPartialUpdate } = require("../helpers/sql");
 
 class Sales {
 
-  static async create({ sales_name, sales_revanue }) {
+  static async create({ dt, picture_code, min_temp, max_temp }) {
     const duplicateCheck = await db.query(
-          `SELECT sales_name
-           FROM sales_emps
-           WHERE sales_name = $1`,
-        [sales_name]);
+          `SELECT dt
+           FROM favorite_days
+           WHERE dt = $1`,
+        [dt]);
 
     if (duplicateCheck.rows[0])
-      throw new BadRequestError(`Duplicate Sales Person: ${sales_name}`);
+      throw new BadRequestError(`Duplicate time in second: ${dt}`);
 
     const result = await db.query(
-          `INSERT INTO sales_emps
-           (sales_name, sales_revanue)
-           VALUES ($1, $2)
-           RETURNING sales_name, sales_revanue`,
+          `INSERT INTO favorite_days
+           (dt, picture_code, min_temp, max_temp)
+           VALUES ($1, $2, $3, $4)
+           RETURNING dt, picture_code, min_temp, max_temp`,
         [
-          sales_name,
-          sales_revanue,
+          dt,
+          picture_code,
+          min_temp,
+          max_temp
         ],
     );
-    const sales = result.rows[0];
+    const favoriteDay = result.rows[0];
 
-    return sales;
+    return favoriteDay;
   }
 
   static async findAll() {
-    let query = `SELECT sales_name,
-                        sales_revanue
-                 FROM sales_emps`;
+    let query = `SELECT dt,
+                        picture_code,
+                        min_temp,
+                        max_temp
+                 FROM favorite_days`;
                  
-    const salesRes = await db.query(query);
-    return salesRes.rows;
-  }
-
-  static async get(sales_name) {
-    const salesRes = await db.query(
-          `SELECT sales_name,
-                  sales_revanue
-           FROM sales_emps
-           WHERE sales_name = $1`,
-        [sales_name]);
-
-    const sales = salesRes.rows[0];
-
-    if (!sales) throw new NotFoundError(`No sales: ${sales_name}`);
-
-    const sales_detailRes = await db.query(
-          `SELECT id, product_name, sold_price, profit, sold_date
-           FROM sales_detail
-           WHERE sales_name = $1
-           ORDER BY id`,
-        [sales_name],
-    );
-
-    sales.sales_detail = sales_detailRes.rows;
-
-    return sales;
-  }
-
-  static async remove(salesName) {
-    const result = await db.query(
-          `DELETE
-           FROM sales_emps
-           WHERE sales_name = $1
-           RETURNING sales_name`,
-        [sales_name]);
-    const sales = result.rows[0];
-
-    if (!sales) throw new NotFoundError(`No sales: ${salesName}`);
+    const favDaysRes = await db.query(query);
+    return favDaysRes.rows;
   }
 }
-
 
 module.exports = Sales;
