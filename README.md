@@ -1,14 +1,18 @@
 # weather_app_take_home
 
 1. Please remember to enter "createdb weather" into the terminal to set up the psql server
+2. After creating database, enter "psql" to connect to the database
+3. After the connection, enter "\c weather" to connect to weather database
+4. Then enter "\i weather-schema.sql" to create the table
 2. Frontend is running at local port 3000 and backend is running at local port 3001
 3. The app tracks only the weather in Toronto for this moment
-4. Like and save function is in the process of development
+4. A mini server is under construction to help you save your favorite day permanently 
 
-# two screenshots of the app are available in public folder from frontend
+# Three screenshots of the app are available in public folder from frontend
 
 - One for the weather list cards
 - One for the card detail
+- One for the favorite list
 
 # YouTube link for a short video demo to show the animation with the like function
 
