@@ -34,12 +34,10 @@ const DailyWeatherReport = () => {
   const [isLiked, setIsLiked] = useState(false);
 
   const onClick = () => {
-    setIsLiked(!isLiked);
-    isLiked 
-    ? setGlobalFavoriteDays(globalFavoriteDays.slice(0, globalFavoriteDays.length - 1))
-    : setGlobalFavoriteDays([...globalFavoriteDays, dayDetail])
+    setIsLiked(true);
+    setGlobalFavoriteDays([...globalFavoriteDays, dayDetail])
   };
-    console.log(globalFavoriteDays)
+  console.log("isLiked from daily report", isLiked)
   return (
     <div className="DailyWeatherReport">
       {weeklyDataList ? (
@@ -57,7 +55,7 @@ const DailyWeatherReport = () => {
           <div className="day_detail_description">
             <p>{`${humidity} ${dayDetail.humidity}`}</p>
             <p>{`${sunrise} ${sunriseTime}`}</p>
-            <p>{`${sunset} ${sunsetTime}`}</p>
+            <p>{`${sunset} ${sunsetTime}`}</p>  
           </div>
         </button>
       ) : (
