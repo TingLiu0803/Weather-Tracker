@@ -11,12 +11,11 @@ const FavoriteDayOverView = ({ dailyData }) => {
       <h3>{favDayInWeek}</h3>
       <img
         className="weekly_list_img"
-        src={`${weatherIconUrl}/${dailyData.weather[0].icon}@2x.png`}
+        src={`${weatherIconUrl}/${dailyData.picture_code}@2x.png`}
         alt=""
       />
-      <p>{dailyData.weather[0].main}</p>
-      <p className="max_temp">{`${dailyData.temp.max} ${celsiusSign}`}</p>
-      <p className="min_temp">{`${dailyData.temp.min} ${celsiusSign}`}</p>
+      <p className="max_temp">{`${dailyData.max_temp} ${celsiusSign}`}</p>
+      <p className="min_temp">{`${dailyData.min_temp} ${celsiusSign}`}</p>
     </div>
   );
 };
