@@ -1,13 +1,11 @@
 import "./index.css";
 import axios from "axios";
-import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useContextValue } from "../../context/appContext";
 import { weatherIconUrl, BASE_URL } from "../../shared/constants/BASE_URL";
 import {
   celsiusSign,
   favoriteDay,
-  favorited,
   humidity,
   sunrise,
   sunset
@@ -32,7 +30,6 @@ const DailyWeatherReport = () => {
   const sunriseTime = convertToSunRiseTime(dayDetail.sunrise);
   const sunsetTime = convertoToSunsetTime(dayDetail.sunset);
   const history = useHistory();
-  const [isLiked, setIsLiked] = useState(false);
 
   const addFavDates = async (dt, picture_code, min_temp, max_temp) => {
     await axios
@@ -47,7 +44,6 @@ const DailyWeatherReport = () => {
   };
 
   const onClick = () => {
-    setIsLiked(true);
     setGlobalFavoriteDays([...globalFavoriteDays, dayDetail]);
     addFavDates(
       dayDetail.dt,
@@ -83,7 +79,7 @@ const DailyWeatherReport = () => {
       <div>
         {weeklyDataList ? (
           <button className="like_button" onClick={onClick}>
-            {isLiked ? favorited : favoriteDay}
+            {favoriteDay}
           </button>
         ) : (
           ""

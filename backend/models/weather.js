@@ -4,7 +4,7 @@ const db = require("../db");
 const { BadRequestError, NotFoundError } = require("../expressError");
 const { sqlForPartialUpdate } = require("../helpers/sql");
 
-class Sales {
+class Weather {
 
   static async create({ dt, picture_code, min_temp, max_temp }) {
     const duplicateCheck = await db.query(
@@ -45,4 +45,4 @@ class Sales {
   }
 }
 
-module.exports = Sales;
+module.exports = Weather;

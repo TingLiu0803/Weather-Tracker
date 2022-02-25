@@ -3,7 +3,7 @@
 const express = require("express");
 
 const { BadRequestError } = require("../expressError");
-const Sales = require("../models/sales_emps");
+const Wether = require("../models/weather");
 const axios = require("axios");
 
 const router = new express.Router();
@@ -13,7 +13,7 @@ const BASE_URL =
 
 router.post("/saved_fav_days", async (req, res, next) => {
   try {
-    const favDay = await Sales.create(req.body);
+    const favDay = await Wether.create(req.body);
     return res.status(201).json({ favDay });
   } catch (err) {
     return next(err);
@@ -31,7 +31,7 @@ router.get("/", async (req, res, next) => {
 
 router.get("/saved_fav_days", async (req, res, next) => {
   try {
-    const favDaysInfo = await Sales.findAll();
+    const favDaysInfo = await Wether.findAll();
     return res.json({ favDaysInfo });
   } catch (err) {
     return next(err);

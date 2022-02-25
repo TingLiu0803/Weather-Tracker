@@ -4,9 +4,12 @@
 2. After creating database, enter "psql" to connect to the database
 3. After the connection, enter "\c weather" to connect to weather database
 4. Then enter "\i weather-schema.sql" to create the table
-2. Frontend is running at local port 3000 and backend is running at local port 3001
-3. The app tracks only the weather in Toronto for this moment
-4. A mini server is under construction to help you save your favorite day permanently 
+
+   Please direct to backend folder in terminal to do above
+
+5. Frontend is running at local port 3000 and backend is running at local port 3001
+6. The app tracks only the weather in Toronto for this moment
+7. A mini server is under construction to help you save your favorite day permanently 
 
 # Three screenshots of the app are available in public folder from frontend
 

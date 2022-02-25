@@ -1,5 +1,5 @@
 export const convertToSunRiseTime = (seconds) => {
- let timeInDay = "";
+  let timeInDay = "";
   if (seconds) {
     timeInDay = new Date(seconds * 1000).toLocaleString("en-US", {
       timeZone: "America/Toronto"
@@ -9,7 +9,7 @@ export const convertToSunRiseTime = (seconds) => {
 };
 
 export const convertoToSunsetTime = (seconds) => {
- let timeInDay = "";
+  let timeInDay = "";
   if (seconds) {
     timeInDay = new Date(seconds * 1000).toLocaleString("en-US", {
       timeZone: "America/Toronto"
@@ -19,7 +19,7 @@ export const convertoToSunsetTime = (seconds) => {
 };
 
 export const convertToFavDayInWeek = (seconds) => {
-let timeInDay = "";
+  let timeInDay = "";
   if (seconds) {
     timeInDay = new Date(seconds * 1000).toLocaleString("en-US", {
       weekday: "long",
@@ -27,4 +27,14 @@ let timeInDay = "";
     });
   }
   return timeInDay;
-}
+};
+
+export const convertToDataFormat = (seconds) => {
+  let timeInDay = "";
+  if (seconds) {
+    timeInDay = new Date(seconds * 1000).toLocaleString("en-US", {
+      timeZone: "America/Toronto"
+    });
+  }
+  return timeInDay;
+};

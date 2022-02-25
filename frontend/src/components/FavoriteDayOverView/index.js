@@ -1,7 +1,7 @@
 import "./index.css";
 import { celsiusSign } from "../../shared/constants/constantStrings";
 import { weatherIconUrl } from "../../shared/constants/BASE_URL";
-import { convertToFavDayInWeek } from "../../shared/helpers/sunRiseTimeConverter";
+import { convertToFavDayInWeek, convertToDataFormat } from "../../shared/helpers/sunRiseTimeConverter";
 
 const FavoriteDayOverView = ({ dailyData }) => {
   const favDayInWeek = convertToFavDayInWeek(dailyData.dt);
@@ -9,6 +9,7 @@ const FavoriteDayOverView = ({ dailyData }) => {
   return (
     <div className="FavoriteDayOverView">
       <h3>{favDayInWeek}</h3>
+      <p>{convertToDataFormat(dailyData.dt)}</p>
       <img
         className="weekly_list_img"
         src={`${weatherIconUrl}/${dailyData.picture_code}@2x.png`}
