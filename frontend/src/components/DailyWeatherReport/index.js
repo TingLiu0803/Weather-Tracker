@@ -2,6 +2,7 @@ import "./index.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useContextValue } from "../../context/appContext";
+import { useCallback } from "react";
 import { weatherIconUrl, BASE_URL } from "../../shared/constants/BASE_URL";
 import {
   celsiusSign,
@@ -20,11 +21,7 @@ import {
 
 const DailyWeatherReport = () => {
   const searchKey = localStorage.getItem("searchKey");
-  const {
-    weeklyDataList,
-    globalFavoriteDays,
-    setGlobalFavoriteDays
-  } = useContextValue();
+  const { weeklyDataList } = useContextValue();
   const dayDetail = weeklyDataList ? weeklyDataList[searchKey] : "";
   const dayInWeek = convertToDayInWeek(dayDetail.dt);
   const sunriseTime = convertToSunRiseTime(dayDetail.sunrise);
@@ -43,15 +40,14 @@ const DailyWeatherReport = () => {
       .catch((err) => new Error());
   };
 
-  const onClick = () => {
-    setGlobalFavoriteDays([...globalFavoriteDays, dayDetail]);
+  const onClick = useCallback(() => {
     addFavDates(
       dayDetail.dt,
       dayDetail.weather[0].icon,
       dayDetail.temp.min,
       dayDetail.temp.max
     );
-  };
+  }, [dayDetail]);
 
   return (
     <div className="DailyWeatherReport">
@@ -70,7 +66,7 @@ const DailyWeatherReport = () => {
           <div className="day_detail_description">
             <p>{`${humidity} ${dayDetail.humidity}`}</p>
             <p>{`${sunrise} ${sunriseTime}`}</p>
-            <p>{`${sunset} ${sunsetTime}`}</p>  
+            <p>{`${sunset} ${sunsetTime}`}</p>
           </div>
         </button>
       ) : (

@@ -1,7 +1,7 @@
 import "./index.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { backHome } from "../../shared/constants/constantStrings";
 import FavoriteDayOverView from "../../components/FavoriteDayOverView/index";
 import { favoritedPageTitle } from "../../shared/constants/constantStrings";
@@ -12,25 +12,28 @@ const FavoriteDays = () => {
   const history = useHistory();
   const [favoriteDateDb, setFavoriteDateDb] = useState([]);
 
-  const getFavoriteDaysFromDb = async () => {
+  const getFavoriteDaysFromDb = useCallback(async () => {
     await axios
       .get(`${BASE_URL}weatherData/saved_fav_days`)
       .then((res) => setFavoriteDateDb(res.data.favDaysInfo))
       .catch((err) => new Error());
-  };
+  }, []);
 
   useEffect(() => {
     getFavoriteDaysFromDb();
-  }, []);
-
-  console.log(favoriteDateDb);
+  }, [getFavoriteDaysFromDb]);
 
   return (
     <div className="FavoriteDays">
       <h1>{favoritedPageTitle}</h1>
       {favoriteDateDb
         ? favoriteDateDb.map((dailyData, key) => (
-            <FavoriteDayOverView key={dailyData.dt} dailyData={dailyData} />
+            <FavoriteDayOverView
+              key={dailyData.dt}
+              dailyData={dailyData}
+              favoriteDateDb={favoriteDateDb}
+              setFavoriteDateDb={setFavoriteDateDb}
+            />
           ))
         : ""}
       <div>

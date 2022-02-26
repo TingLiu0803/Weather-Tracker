@@ -43,6 +43,18 @@ class Weather {
     const favDaysRes = await db.query(query);
     return favDaysRes.rows;
   }
+
+  static async remove(dt) {
+    const result = await db.query(
+          `DELETE
+           FROM favorite_days
+           WHERE dt = $1
+           RETURNING dt`,
+        [dt]);
+    const dayTime = result.rows[0];
+
+    if (!dayTime) throw new NotFoundError(`No such item found ${dt}`);
+  }
 }
 
 module.exports = Weather;

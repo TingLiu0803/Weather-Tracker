@@ -20,6 +20,15 @@ router.post("/saved_fav_days", async (req, res, next) => {
   }
 });
 
+router.delete("/saved_fav_days", async function (req, res, next) {
+  try {
+    await Wether.remove(req.body.dt);
+    return res.json({ deleted: req.body.dt });
+  } catch (err) {
+    return next(err);
+  }
+});
+
 router.get("/", async (req, res, next) => {
   try {
     const weeklyWeatherData = await axios(BASE_URL).then((res) => res.data);
